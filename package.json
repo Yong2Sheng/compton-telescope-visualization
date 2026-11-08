@@ -14,7 +14,9 @@
     "test:reconstruction": "node tests/reconstruction-physics.mjs",
     "test:reconstruction-browser": "node tests/reconstruction-browser.mjs",
     "test:notation": "node tests/varphi-notation.mjs",
-    "test:origin": "node tests/reconstruction-origin.mjs"
+    "test:origin": "node tests/reconstruction-origin.mjs",
+    "test:projection-seams": "node tests/projection-seams.mjs",
+    "test:audit-fixes": "node tests/audit-fixes-browser.mjs"
   },
   "keywords": [
     "compton-telescope",

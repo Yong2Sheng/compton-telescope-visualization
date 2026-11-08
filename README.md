@@ -44,6 +44,8 @@ npm run test:browser
 npm run test:reconstruction-browser
 npm run test:notation
 npm run test:origin
+npm run test:projection-seams
+npm run test:audit-fixes
 ```
 
 浏览器检查需要 Google Chrome。构建脚本只生成上面两个正式页面，不会重新生成已删除的预览页。

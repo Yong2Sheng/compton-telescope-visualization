@@ -16,7 +16,9 @@
     "test:notation": "node tests/varphi-notation.mjs",
     "test:origin": "node tests/reconstruction-origin.mjs",
     "test:projection-seams": "node tests/projection-seams.mjs",
-    "test:audit-fixes": "node tests/audit-fixes-browser.mjs"
+    "test:audit-fixes": "node tests/audit-fixes-browser.mjs",
+    "test:angle-guides": "node tests/angle-relations.mjs",
+    "test:angle-guides-browser": "node tests/angle-guides-browser.mjs"
   },
   "keywords": [
     "compton-telescope",

@@ -40,6 +40,14 @@ The display frame rotates S to the map center. All event directions and HEALPix 
 
 The slice is a ±10° bin around the selected ϕ, using current-source events only, regardless of the other-source point-cloud switch. Both the visible slice description and the legend identify this scope. Standard mode shows its HEALPix counts as disks at representative directions inside pixels; Mollweide mode displays actual projected pixel polygons. Disks/pixels are placed at the bin-center height; event points retain their exact ϕ. Their purpose is to distinguish a binned count map from the exact event point cloud.
 
+## Optional 3D angle guides
+
+Enable **Angle guides / 角度关系** beside the left camera selector after the event cone appears. The default is off. The adjacent selector shows all five angles, only the scattered direction k, only the back-projection axis a, or only the Compton scattering angle. Switching guides preserves the event, accumulated events and camera.
+
+All arcs share the first interaction r₁ as their origin. χₖ and χₐ run from −z to their respective directions. ψₖ and ψₐ run in the xy plane from +y toward +x, retaining the full 0–360° sweep rather than replacing angles above 180° with the shorter arc. Dashed lines connect each direction to its xy projection. The gold ϕ arc connects the source direction S and a = −k; it is the same physical scattering angle as the angle between incoming propagation −S and k.
+
+Colors distinguish the angles: gold ϕ, pink χₖ, turquoise ψₖ, lavender χₐ and light blue ψₐ. Labels use transparent KaTeX math typography and follow the actual 3D arc positions, without background cards. Enabling guides reduces the cone/sphere opacity to keep the arcs visible. At a coordinate pole the undefined azimuth is omitted; at exactly 0° or 180° scatter the nonunique scattering-plane arc is omitted.
+
 ## Build and checks
 
 - `npm run build:reconstruction`: regenerate the single-file full demonstration.
@@ -47,6 +55,8 @@ The slice is a ±10° bin around the selected ϕ, using current-source events on
 - `npm run test:reconstruction`: 100000 generated events over four energies, energy/direction/angle reconstruction, probability moments against numerical integration, HEALPix reference matches, source poles and projection singularities.
 - `npm run test:reconstruction-browser`: actual UI flow, replay, +1000 events, changes to energy and source without rewriting history, projection switch, independent free flight, pause, bilingual display, aligned canvases at 1600 and 1366 widths, narrow-screen overflow and offline loading. Requires Google Chrome.
 - Existing `npm test` and `npm run test:psi` validate the shared original geometry.
+- `npm run test:angle-guides`: physical arc endpoints, constant radii, full azimuth sweeps, coordinate poles and immutable event data across seeded and cardinal-direction events.
+- `npm run test:angle-guides-browser`: all four display groups, rendered arc origins/radii, math labels, preserved event history, cleanup, bilingual controls and 1366×768 presentation layout.
 
 Screenshots and acceptance outputs are stored under `output/reconstruction/`.
 

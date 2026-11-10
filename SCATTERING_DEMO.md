@@ -6,7 +6,7 @@ Open `compton-scattering.html` directly in Safari or Chrome. This is a separate,
 
 1. An electron initially at rest.
 2. An incident photon approaches the first interaction at the origin.
-3. One Compton scatter produces a scattered photon and a recoil electron. The gold arc shows the scattering angle varphi between incident propagation n and scattered propagation k.
+3. One Compton scatter produces a scattered photon and a recoil electron. Both outgoing paths start at the interaction simultaneously and are progressively revealed over 2.5 seconds. The wave is revealed as a prefix of its final curve, preserving the wavelength and amplitude of the existing path. The reference line and gold scattering-angle arc follow over 0.55 seconds; k and varphi labels appear near the end of their corresponding reveal. Next is temporarily disabled during this sequence, while Previous cancels it and allows replay. Reduced-motion environments shorten the sequence. Reveal timing and arrow lengths are presentation choices, not a scale for particle speeds. The gold arc shows varphi between incident propagation n and scattered propagation k.
 4. The detector measures two ordered interaction sites r1 and r2. Site 1 deposits the electron kinetic energy E1. Site 2 fully absorbs the remaining photon energy E2. The recoil electron direction is hidden by default at this step and is not used to reconstruct the source.
 5. The camera moves continuously from the planar view into 3D. This is the same event, with the same measured direction and deposits.
 6. The spherical event circle and its cone appear. Use the beta slider or Sweep 360° to enumerate alternative incident directions consistent with that event. The readout calculates the actual angle from the vectors on every update. It stays equal to varphi.
@@ -46,4 +46,5 @@ References:
 - `npm run build:scattering` produces the self-contained HTML, including Three.js, KaTeX and fonts.
 - `npm run test:scattering` checks 3630 candidate directions over five energies and six angles, constant measured quantities, reconstruction, momentum conservation and the electron mass shell, and spherical-circle geometry.
 - `npm run test:scattering-browser` checks the six steps, actual camera drag, candidate rotation, pause, energy/angle changes, bilingual controls, offline loading and 1366×768 layout. Requires Google Chrome.
+- `npm run test:scattering-reveal` checks actual partially drawn photon/electron geometry for synchronized progress, delayed angle annotation, unchanged event measurements, cancellation and replay at normal animation speed.
 - Screenshots and browser results are under `output/scattering/` (ignored by Git).

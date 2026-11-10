@@ -21,7 +21,8 @@
     "test:angle-guides-browser": "node tests/angle-guides-browser.mjs",
     "build:scattering": "node build-scattering.mjs",
     "test:scattering": "node tests/scattering-physics.mjs",
-    "test:scattering-browser": "node tests/scattering-browser.mjs"
+    "test:scattering-browser": "node tests/scattering-browser.mjs",
+    "test:scattering-reveal": "node tests/scattering-reveal.mjs"
   },
   "keywords": [
     "compton-telescope",

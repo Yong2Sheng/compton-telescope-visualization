@@ -34,7 +34,7 @@ function resetView(){cameraTween=null;const damping=controls.enableDamping;contr
 function resize(){const width=view.clientWidth,height=view.clientHeight;camera.aspect=width/height;camera.updateProjectionMatrix();renderer.setSize(width,height)}new ResizeObserver(resize).observe(view);resize();flatHome();
 function buildFixed(){clear(fixed);for(const o of Object.values(labels))o.visible=false;const m=model();
  dot(fixed,[0,0,0],stage>=3?'#273f55':C.electron,.085);label('r1',[0,-.22,0],stage>=3);label('electron',[-.1,.25,0],stage<2);
- if(stage>=2){wave(fixed,[0,0,0],scale(m.k,1.84),C.scattered);label('k',add(scale(m.k,1.42),[.05,-.23,0]));}
+ if(stage>=2){wave(fixed,[0,0,0],scale(m.k,1.84),C.scattered);label('k',scale(m.k,1.42));}
  if(stage>=3){dot(fixed,m.r2,C.scattered,.10);label('r2',add(m.r2,[.16,-.18,0]));}
  if(stage>=4){const sphere=new THREE.Mesh(new THREE.SphereGeometry(2.85,32,20),new THREE.MeshBasicMaterial({color:'#8fa8b7',wireframe:true,transparent:true,opacity:.10,depthWrite:false}));fixed.add(sphere);dashed(fixed,[[0,0,0],scale(m.a,3.15)],C.muted,.7);label('a',add(scale(m.a,1.6),[0,.22,0]));}
  if(stage>=5){const ring=eventCircle(energy,phi,200);line(fixed,ring,C.circle,3.6,.9);if($('cone').checked){const vertices=[];for(let i=1;i<ring.length;i++)vertices.push(0,0,0,...ring[i-1],...ring[i]);const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));fixed.add(new THREE.Mesh(geometry,new THREE.MeshBasicMaterial({color:C.circle,side:THREE.DoubleSide,transparent:true,opacity:.075,depthWrite:false})));for(let i=0;i<12;i++)line(fixed,[[0,0,0],ring[Math.floor(i/12*200)]],C.circle,1,.16)}}
@@ -67,7 +67,10 @@ function frame(now){requestAnimationFrame(frame);const dt=Math.min(.05,(now-last
  if(sweeping){beta=Math.min(2*Math.PI,beta+dt*Math.PI/4);sweepMax=Math.max(sweepMax,beta*180/Math.PI);if(beta>=2*Math.PI){sweeping=false;buildMoving();updateText()}}
  if((sweeping||stage===1&&flight)&&now-lastDynamic>32){buildMoving();lastDynamic=now;if(flight&&now-flight>=1000)flight=null;}
  scene.traverse(o=>{if(o.userData.screenLine)o.material.resolution.set(view.clientWidth,view.clientHeight)});renderer.render(scene,camera);
- for(const {el,point,visible}of Object.values(labels)){const p=vec(point).project(camera),front=vec(point).applyMatrix4(camera.matrixWorldInverse).z<0;el.hidden=!visible||!front||Math.abs(p.x)>.98||Math.abs(p.y)>.98;if(!el.hidden){el.style.left=((p.x+1)*view.clientWidth/2+7)+'px';el.style.top=((1-p.y)*view.clientHeight/2-12)+'px'}}
+ for(const [name,{el,point,visible}]of Object.entries(labels)){const p=vec(point).project(camera),front=vec(point).applyMatrix4(camera.matrixWorldInverse).z<0;el.hidden=!visible||!front||Math.abs(p.x)>.98||Math.abs(p.y)>.98;if(!el.hidden){let x=(p.x+1)*view.clientWidth/2+7,y=(1-p.y)*view.clientHeight/2-12;
+ // Keep k beside the projected photon path, including after camera rotation.
+ if(name==='k'){const origin=vec([0,0,0]).project(camera),dx=(p.x-origin.x)*view.clientWidth,dy=-(p.y-origin.y)*view.clientHeight,length=Math.hypot(dx,dy);let nx=length>1e-6?-dy/length:1,ny=length>1e-6?dx/length:0;if(nx<0){nx=-nx;ny=-ny}const w=el.offsetWidth,h=el.offsetHeight,gap=25+Math.abs(nx)*w/2+Math.abs(ny)*h/2;x=(p.x+1)*view.clientWidth/2+nx*gap-w/2;y=(1-p.y)*view.clientHeight/2+ny*gap-h/2;}
+ el.style.left=x+'px';el.style.top=y+'px'}}
 }
 controls.enabled=false;buildFixed();updateText();requestAnimationFrame(frame);
 window.__COMPTON_SCATTERING__={state:()=>({stage,language,energy,phi,beta,sweeping,sweepMax,camera:camera.position.toArray(),controlsEnabled:controls.enabled,...model()}),circle:()=>eventCircle(energy,phi)};

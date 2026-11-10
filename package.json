@@ -10,7 +10,7 @@
     "test:psi": "node tests/psi-geometry.mjs",
     "test:browser": "node tests/browser-acceptance.mjs",
     "build:reconstruction": "node build-reconstruction.mjs",
-    "build:all": "node build.mjs && node build-reconstruction.mjs",
+    "build:all": "node build.mjs && node build-reconstruction.mjs && node build-scattering.mjs",
     "test:reconstruction": "node tests/reconstruction-physics.mjs",
     "test:reconstruction-browser": "node tests/reconstruction-browser.mjs",
     "test:notation": "node tests/varphi-notation.mjs",
@@ -18,7 +18,10 @@
     "test:projection-seams": "node tests/projection-seams.mjs",
     "test:audit-fixes": "node tests/audit-fixes-browser.mjs",
     "test:angle-guides": "node tests/angle-relations.mjs",
-    "test:angle-guides-browser": "node tests/angle-guides-browser.mjs"
+    "test:angle-guides-browser": "node tests/angle-guides-browser.mjs",
+    "build:scattering": "node build-scattering.mjs",
+    "test:scattering": "node tests/scattering-physics.mjs",
+    "test:scattering-browser": "node tests/scattering-browser.mjs"
   },
   "keywords": [
     "compton-telescope",

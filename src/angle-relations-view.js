@@ -39,7 +39,7 @@ export function drawAngleRelations(view,group,event,mode) {
     dashed(group,plane,'#8aa5b5',.25);
   }
   if(showK) {directionArrow(group,event.k,'#60dfd3');label('\\boldsymbol{k}',scale(event.k,2.3),'#60dfd3','direction-k')}
-  if(showA||mode==='phi')label('\\boldsymbol{a}',scale(event.a,2.48),'#70c4ff','direction-a');
+  if(showA||mode==='k')label('\\boldsymbol{a}',scale(event.a,2.48),'#70c4ff','direction-a');
   for(const [id,direction,angles,color]of [['k',event.k,data.kAngles,'#60dfd3'],['a',event.a,data.aAngles,'#70c4ff']]) {
     if(!(id==='k'?showK:showA)||angles.psi===null)continue;
     const tip=scale(direction,2.18),foot=[tip[0],tip[1],0],radius=id==='k'?1.28:1.72;

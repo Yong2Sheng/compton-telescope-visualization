@@ -28,5 +28,5 @@ export function makeAngleRelations(event) {
   return {guides,kAngles,aAngles,referenceZ:[0,0,-1],referenceY:[0,1,0]};
 }
 export function angleGuideSelected(name,mode) {
-  return mode==='all'||mode==='phi'&&name==='phi'||mode==='k'&&name.endsWith('-k')||mode==='a'&&name.endsWith('-a');
+  return mode==='all'||mode==='k'&&(name==='phi'||name.endsWith('-k'))||mode==='a'&&name.endsWith('-a');
 }

@@ -1,3 +1,5 @@
+**中文** | [English](https://github.com/Yong2Sheng/compton-telescope-visualization/blob/main/README.en.md)
+
 # Compton Telescope Visualization
 
 用于科研演讲与教学的三个离线三维演示：event cone 的几何关系、光子事件重建与 Compton Data Space（CDS），以及从 2D 到 3D 的 Compton 散射过程。直接双击 HTML 即可使用，需要支持 WebGL 的浏览器，不需要启动服务器。

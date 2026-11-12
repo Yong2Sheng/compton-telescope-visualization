@@ -19,7 +19,8 @@
 
 ### 文档
 
-- `docs` 修正 README 的页面入口与说明文档链接：页面入口改为 GitHub Pages 在线演示地址，说明文档改为 GitHub 渲染页面，避免点击后只看到 HTML 源码或原始 Markdown。（本提交）
+- `docs` 新增英文 README（`README.en.md`），并在中英文两份 README 顶部加入语言切换入口，默认显示中文。（本提交）
+- `docs` 修正 README 的页面入口与说明文档链接：页面入口改为 GitHub Pages 在线演示地址，说明文档改为 GitHub 渲染页面，避免点击后只看到 HTML 源码或原始 Markdown。（提交 `7a7c77d`）
 - `docs` 整理公开发布：README 补充第三个演示入口、在线演示地址、完整构建与测试命令、项目结构与许可说明；公开仓库只保留成品文件和演示说明，本机工作笔记不纳入版本控制；同时启用 GitHub Pages 在线演示。（提交 `4e0eb34`）
 - `docs` README 增加“不同投影介绍页面”参考链接（ArcGIS Pro · 方位等距投影 Azimuthal Equidistant），供投影说明引用。（提交 `e56f86b`）
 

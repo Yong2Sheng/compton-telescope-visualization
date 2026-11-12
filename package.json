@@ -33,6 +33,11 @@
   ],
   "author": "",
   "license": "MIT",
+  "homepage": "https://yong2sheng.github.io/compton-telescope-visualization/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yong2Sheng/compton-telescope-visualization.git"
+  },
   "dependencies": {
     "katex": "^0.19.1"
   },

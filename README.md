@@ -62,4 +62,7 @@ npm run test:audit-fixes
 - `tests/`：当前可运行的验证入口。
 - `artifacts/`、`output/`：历史参考资料、过程截图与测试记录，其中的旧页面名仅代表当时版本，不是当前入口。
 
+## 不同投影介绍页面
+https://doc.esri.com/en/arcgis-pro/latest/help/mapping/properties/azimuthal-equidistant.html
+
 许可见 [LICENSE](LICENSE)。
